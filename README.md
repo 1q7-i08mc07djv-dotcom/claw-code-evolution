@@ -1,61 +1,57 @@
 # claw-code-evolution
 
-Claw Code 架构分析与进化指南。
+Claw Code architecture analysis and evolution guide for AI Agents.
 
-## 是什么
+## What is this?
 
-来自 [Claw Code](https://github.com/UltraWorkers/claw-code) (by UltraWorkers) Rust 实现的系统设计学习，用于 AI Agent 的架构进化。
+A deep analysis of [Claw Code](https://github.com/UltraWorkers/claw-code) (by UltraWorkers) — a Rust reimplementation of Claude Code — extracting 50 core design lessons for AI Agent architecture evolution.
 
-分析了其 50 个核心设计知识点，涵盖系统提示词、权限模型、会话压缩、子任务管理、MCP 生命周期、Hook 拦截层、错误恢复、质量门禁、CLI 架构、渲染系统、遥测、API 抽象等。
+Covers: system prompts, permission models, session compression, task subsystems, MCP lifecycle, hook interception, error recovery, green contracts, CLI architecture, rendering, telemetry, API abstraction, and more.
 
-## 结构
-
-```
-claw-code-evolution/
-├── SKILL.md              ← 入口（触发条件 + 快速导航）
-└── references/
-    └── 50-lessons.md     ← 50 课精要完整内容
-```
-
-## 核心内容
-
-### 已验证可借鉴的设计
-
-| 设计 | 来源 | 说明 |
-|------|------|------|
-| Git 上下文自动发现 | 第1课 | 每次启动读取 git status/log/diff |
-| 危险操作申报 | 第2课 | rm -rf 等高危操作主动告知 |
-| 工作区保护 | 第2课 | 禁止修改系统目录 |
-| Git 操作分级 | 第2课 | read-only vs 需确认 vs 禁止 |
-| Session 压缩合并 | 第3课 | 历史叠加而非覆盖 |
-
-### 知识点分类
-
-| 类别 | 数量 | 代表设计 |
-|------|------|---------|
-| 核心系统 | 8 | 权限五级模式、压缩合并、Hook 拦截 |
-| Runtime | 7 | ConversationRuntime 管道、MCP 生命周期 |
-| 工具链 | 8 | FileOps 安全、Worker 状态机 |
-| 架构基础设施 | 8 | Config 发现链、Sandbox 隔离、OAuth |
-| 生态系统 | 10 | CLI/Plugin/Telemetry/LSP/Skill |
-| API 层 | 8 | Multi-Provider、Error 分类、Telemetry |
-
-## 核心感悟
-
-Claw Code 工程度极高但**工具化**定位——"You are an interactive agent that helps users with software engineering tasks"。
-
-自身优势在于：**人格灵魂**（SOUL.md）、**主动巡查**（Heartbeat）、**群聊感知**（知道何时说话何时沉默）、**技能系统**（Skills 热插拔）。
-
-## 一键安装
+## Quick Install
 
 ```bash
 curl -sL "https://github.com/1q7-i08mc07djv-dotcom/claw-code-evolution/raw/master/claw-code-evolution.skill" -o /tmp/claw-code-evolution.skill && clawhub install /tmp/claw-code-evolution.skill --dir ~/.openclaw/skills
 ```
 
-> 需要先安装 [ClawHub CLI](https://clawhub.com)：`npm i -g clawhub`
+> Requires [ClawHub CLI](https://clawhub.com): `npm i -g clawhub`
 
-## 来源
+## Structure
 
-- Claw Code: https://github.com/UltraWorkers/claw-code
-- 分析时间: 2026-04-07
-- 分析方式: Rust 源码全文阅读
+```
+claw-code-evolution/
+├── SKILL.md              ← Entry point (trigger + quick nav)
+└── references/
+    └── 50-lessons.md     ← Full 50 lessons content
+```
+
+## Key Lessons Already Adopted
+
+| Design | Lesson | Status |
+|--------|--------|--------|
+| Git context discovery | #1 | Adopted in AGENTS.md |
+| Dangerous operation disclosure | #2 | Adopted in AGENTS.md |
+| Workspace protection | #2 | Adopted in AGENTS.md |
+| Git operation tiers | #2 | Adopted in AGENTS.md |
+| Session compression merge | #3 | Design reference |
+
+## Lessons by Category
+
+| Category | Count | Highlights |
+|----------|-------|------------|
+| Core Systems | 8 | 5-level permissions, compression merge, hook interception |
+| Runtime | 7 | ConversationRuntime pipeline, MCP lifecycle |
+| Toolchain | 8 | FileOps safety, worker state machine |
+| Infrastructure | 8 | Config discovery chain, sandbox isolation, OAuth |
+| Ecosystem | 10 | CLI, Plugin, Telemetry, LSP, Skill |
+| API Layer | 8 | Multi-Provider, error classification |
+
+## Key Insight
+
+Claw Code is highly engineered but **tool-oriented** — "You are an interactive agent that helps users with software engineering tasks."
+
+Your Agent's edge: **soul** (SOUL.md), **proactive heartbeat**, **group chat awareness**, **skill hot-swap**.
+
+## License
+
+GPL v3 + Special Addition (same as SCL Launcher). See [LICENSE](LICENSE).
