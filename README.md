@@ -46,9 +46,13 @@ Claw Code 工程度极高但**工具化**定位——"You are an interactive age
 
 自身优势在于：**人格灵魂**（SOUL.md）、**主动巡查**（Heartbeat）、**群聊感知**（知道何时说话何时沉默）、**技能系统**（Skills 热插拔）。
 
-## 安装
+## 一键安装
 
-将 `.skill` 文件放入 OpenClaw 的 skills 目录，或使用 clawhub 安装。
+```bash
+curl -sL "https://github.com/1q7-i08mc07djv-dotcom/claw-code-evolution/raw/master/claw-code-evolution.skill" -o /tmp/claw-code-evolution.skill && clawhub install /tmp/claw-code-evolution.skill --dir ~/.openclaw/skills
+```
+
+> 需要先安装 [ClawHub CLI](https://clawhub.com)：`npm i -g clawhub`
 
 ## 来源
 
